@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		<!-- stylesheet - dependencies -->
+		<link rel="stylesheet" type="text/css" href="css/vendor.min.css">
+
+		<!-- stylesheet - app -->
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body ng-app="crudApp">
+
+		<app-header></app-header>
+		
+		<div ui-view="main"></div>
+
+
+		<!-- script - main built files. (command: "gulp production" from terminal at project's root folder) -->
+
+		<!-- scripts - dependencies -->		
+		<script type="text/javascript" src="js/vendor.min.js"></script>
+
+		<!-- scripts - app development -->
+		<script type="text/javascript" src="js/main.min.js"></script>
+	</body>
+</html>

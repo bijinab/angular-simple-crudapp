@@ -1,0 +1,19 @@
+{
+  "name": "crud-app",
+  "description": "Alligiant code challenge",
+  "main": "server.js",
+  "authors": [
+    "Bijin"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "alligiant"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-route": "^1.5.8",
+    "angular-ui-router": "^0.3.1"
+  }
+}

@@ -1,0 +1,95 @@
+.app-header {
+	background-color: #607D8B;
+
+	.navbar-brand {
+		color: #fff;
+
+		&:focus, &:hover {
+			color: #fff;
+
+		}
+	}
+
+	.navbar-nav {
+		li {
+			a {
+				color: #fff;
+				&:hover, &:focus {
+					background-color: #758e9a;
+					color: #fff;
+				}
+			}
+		} 
+
+		
+		.active {
+			a {
+				background-color: #758e9a;
+				&:hover, &:focus {
+					background-color: #758e9a;
+				} 
+			}
+		}
+	}
+
+	.navbar-toggle, .navbar-toggle:hover, .navbar-toggle:focus {
+		border-color: transparent;
+		background-color: transparent;
+
+		.icon-bar {
+			background-color: #fff;
+		}
+	}
+}
+
+.panel {
+	overflow: hidden;
+
+	border: none;
+	.panel-header {
+		background-color: #607D8B;
+		padding: 10px 16px;
+		font-size: 16px;
+		color: #fff;
+	}
+}
+
+.input-small {
+	max-width: 150px;
+}
+
+.index-filters {
+	padding: 10px;
+	margin-bottom: 15px;
+	background-color: #607D8B;
+	color: #fff;
+
+	span {
+		color: rgba(255, 255, 255, 0.34);
+	}
+
+	a {
+		margin: 0 5px;
+		color: #fff;
+		cursor: pointer;
+			
+		&.active {
+			color: #b5b5b5;
+			text-decoration: blink;
+		}
+	}
+}
+
+
+// form validation
+.input-error {
+	font-size: 12px;
+	color: $color-error;
+	margin-top: 3px;
+}
+
+input {
+	&.ng-invalid.ng-touched {
+		border-color: $color-error;
+	}
+}

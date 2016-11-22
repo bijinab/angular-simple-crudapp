@@ -1,0 +1,30 @@
+<table class="table table-responsive table-striped">
+	<thead>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>Gender</th>
+		<th>Age</th>
+		<th>DOB</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="employee in employees">
+			<td>{{employee.firstName}}</td>
+			<td>{{employee.lastName}}</td>
+			<td>{{employee.email}}</td>
+			<td>{{employee.gender}}</td>
+			<td>{{employee.age}}</td>
+			<td>{{employee.dob | date:'shortDate'}}</td>
+		</tr>
+		<tr ng-hide="employees.length" align="center">
+			<td colspan="10">No Employees found</td>
+		</tr>
+	</tbody>
+	<tfoot ng-show="employees.length">
+		<tr>
+			<td colspan="6">
+				<table-pagination data-page-options="pageOptions" page-on-change="loadTable($params, $done)"></table-pagination>
+			</td>
+		</tr>
+	</tfoot>
+</table>

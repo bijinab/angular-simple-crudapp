@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-4">Show
+        <select class="form-control page-limit" ng-model="pageOptions.limit" placeholder="Limit" ng-change="setPage()">
+            <option ng-repeat="n in nPages" value="{{n}}">{{n}}</option>
+        </select>
+        per page
+    </div>
+    <div class="col-xs-8" align="right">
+        <button class="btn btn-default btn-sm" ng-disabled="pagination.firstPageDisabled" ng-click="firstPage()"> First </button>
+        <button class="btn btn-default btn-sm" ng-disabled="pagination.firstPageDisabled" ng-click="prevPage()"> Prev </button>
+        <a class="btn btn-page-link active-page" ng-repeat="p in pages"
+            ng-click="setPage()" ng-disabled="currentPage == p"
+            ng-class="{active: p == currentPage}">{{p}}
+        </a>
+        <button class="btn btn-default btn-sm" ng-disabled="pagination.lastPageDisabled" ng-click="nextPage()"> Next </button>
+        <button class="btn btn-default btn-sm" ng-disabled="pagination.lastPageDisabled" ng-click="lastPage()"> Last </button>
+    </td>
+</div>

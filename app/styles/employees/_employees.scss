@@ -1,0 +1,41 @@
+.employees-content {
+	margin-top: 16px;
+	
+	.add-edit-employee {
+		margin-top: 16px;
+
+		.panel-header {
+			cursor: pointer;
+
+			span {
+				font-size: 18px;
+			}
+		}
+	}
+
+	.employees-table {
+		.edit-btn, .delete-btn {
+			cursor: pointer;
+			margin-right:15px;
+			outline: none !important;
+		}
+
+		.edit-btn {
+			&:hover {
+				color: #607D8B;
+			}
+		}
+
+		.delete-btn {
+			&:hover {
+				color: $color-error;
+			}
+		}
+
+		.btn-page-link {
+			&.active {
+				
+			}
+		}
+	}
+}

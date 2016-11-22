@@ -1,0 +1,111 @@
+<div class="container employees-content">
+	<div class="panel add-edit-employee">
+		<div class="panel-header" ng-click="toggleForm(empForm)">
+			{{formData.id ? 'Update': 'Add New'}} Employee
+			<span class="pull-right"><i class="gyphicon" ng-class="{'glyphicon-plus': newForm.isClosed, 'glyphicon-minus': !newForm.isClosed}"></i></span>
+		</div>
+		<div class="panel-body" style="display: none;">
+			<form name="empForm">
+				<show-message data-message="addEmpHint"></show-message>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="firstName">First Name*</label>
+							<input type="text" ng-model="formData.firstName" class="form-control" name="firstName" id="firstName" placeholder="eg: William" required/>
+							<div ng-show="empForm.firstName.$touched && empForm.firstName.$error.required" class="input-error">First Name is required</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="lastName">Last Name*</label>
+							<input type="text" ng-model="formData.lastName" class="form-control" id="lastName" name="lastName" placeholder="eg: Shakespear" required/>
+							<div ng-show="empForm.lastName.$touched && empForm.lastName.$error.required" class="input-error">Last Name is required</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="email">Email*</label>
+							<input type="text" ng-model="formData.email" class="form-control" name="email" id="email" placeholder="eg: william.shakespear@samplemail.com" ng-pattern="emailRegEx" required/>
+							<div ng-show="empForm.email.$touched && empForm.email.$error.required" class="input-error">Email is required</div>
+							<div ng-show="empForm.email.$touched && empForm.email.$error.pattern" class="input-error">Invalid email</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="age">Age*</label>
+							<input type="number" ng-model="formData.age" class="form-control input-small" id="age" name="age" placeholder="eg:29" required/>
+							<div ng-show="empForm.age.$touched && empForm.age.$error.required" class="input-error">Age is required</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="gender">Gender*</label><br/>
+							<label class="radio-inline">
+								<input type="radio" ng-model="formData.gender" name="gender" ng-model="gender" id="gender" value="female" required/> Female
+							</label>
+							<label class="radio-inline">
+								<input type="radio" ng-model="formData.gender" name="gender" ng-model="gender" id="gender" value="male" required/> Male
+							</label>
+							<div ng-show="empForm.gender.$touched && empForm.gender.$error.required" class="input-error">Gender is required</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="dob">Date of Birth*</label>
+							<input type="date" ng-model="formData.dob" class="form-control input-small" id="dob" name="dob" placeholder="mm/dd/yyyy" required/>
+							<div ng-show="empForm.dob.$touched && empForm.dob.$error.required" class="input-error">Date of birth is required</div>
+							<div ng-show="empForm.dob.$touched && empForm.dob.$error.date" class="input-error">Invalid Date</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<show-message data-message="formStatusMsg"></show-message>
+			<div class="row">
+				<div class="col-xs-12">
+					<button ng-click="toggleForm(empForm)" class="btn btn-default">Close</button>
+					<button ng-click="save(empForm)" ng-hide="formData.id" class="btn btn-primary">Save</button>
+					<button ng-click="update(empForm)" ng-show="formData.id" class="btn btn-primary">Update</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel employees-table">
+		<table class="table table-responsive table-striped">
+			<thead>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Age</th>
+				<th>DOB</th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{employee.firstName}} {{employee.lastName}}</td>
+					<td>{{employee.email}}</td>
+					<td>{{employee.gender}}</td>
+					<td>{{employee.age}}</td>
+					<td>{{employee.dob | date:'shortDate'}}</td>
+					<td>
+						<span ng-click="delete(employee)" class="delete-btn pull-right"><i class="glyphicon glyphicon-trash"></i></span>
+						<span ng-click="edit(employee)" class="edit-btn pull-right"><i class="glyphicon glyphicon-edit"></i></span>
+					</td>
+				</tr>
+				<tr ng-show="!employees.length" align="center">
+					<td colspan="10">No Employees found</td>
+				</tr>
+			</tbody>
+			<tfoot ng-show="employees.length">
+			<tr>
+				<td colspan="6">
+				<table-pagination data-page-options="pageOptions" page-on-change="loadTable($params, $done)"></table-pagination>
+			</td>
+		</tr>
+		</tfoot>
+	</table>
+</div>
+</div>
